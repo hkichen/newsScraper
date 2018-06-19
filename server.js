@@ -59,7 +59,8 @@ app.get("/scrape", function(req, res) {
 		// Then, we load that into cheerio and save it to $ for a shorthand selector
 		var $ = cheerio.load(html);
 		$("article h3").each(function(i, element) {
-			var result = {};
+      var result = {};
+      console.log(result)
 			result.title = $(this).children("a").text();
 			result.link = $(this).children("a").attr("href");
 
