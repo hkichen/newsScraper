@@ -65,13 +65,10 @@ app.get("/scrape", function(req, res) {
 			result.link = $(this).children("a").attr("href");
 
       var session = new Article(result);
-      //saving session to database
 			session.save(function(err, data) {
-				// Log any errors
 				if (err) {
 					console.log(err);
 				}
-				// Or log the data
 				else {
 					console.log(data);
 				}
@@ -82,7 +79,7 @@ app.get("/scrape", function(req, res) {
 	res.redirect("/");
 });
 
-//get articles from db
+//get articles from db (find all)
 app.get("/articles", function(req, res) {
 	Article.find({}, function(error, data) {
 		if (error) {
